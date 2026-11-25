@@ -1,0 +1,919 @@
+{
+  "purpose": "Balanced local accounting pilot",
+  "created_utc": "2026-11-25T02:29:50.352882+00:00",
+  "python": "3.14.2 (main, Dec  5 2025, 16:49:16) [Clang 17.0.0 (clang-1700.6.3.2)]",
+  "platform": "macOS-26.5.1-x86_64-i386-64bit-Mach-O",
+  "git_commit": "14ecb472aca18a8bb82fc24aad08304fca4f5fa0",
+  "git_status_at_start": "?? results/balanced-bujte8z_/\n?? results/full-pilot-6v5i8ge9/\n?? src/run_full_pilot.py",
+  "source_code_sha256": {
+    "measured_io.py": "6cb505cd5eca12dd2e49eec142cc6f9ea2773bae8f3bef7275c4d83008e3e5bb",
+    "compare_local.py": "c8a5f938ac440099e3fe3332ae77d2101a36747a3c4656066e8685b8caa39ab0",
+    "validate_dataset.py": "c54ec517bf215f2aab8aaa1f6f0b18a102849f6ede33a86a4e15ddce9eb0264d",
+    "run_balanced_pilot.py": "85ef1165af3f92caf64c78dcb57f90d620cc622dc57aedff6bdb3026c435058a"
+  },
+  "manifest_sha256": "d203fdb2e7ebeffd599227e3f8de7fda395ace93143fda4e7e25f519de271c23",
+  "manifest": {
+    "schema_version": 1,
+    "dataset_id": "synthetic-few-large-v1",
+    "seed_rule": "42 + sample_number * 2 + mate",
+    "read_length": 100,
+    "reads_per_mate_by_sample": [
+      8192,
+      8192,
+      8192,
+      8192
+    ],
+    "purpose": "Synthetic restoration fixtures; not biological simulation",
+    "files": [
+      {
+        "sample_id": "sample_0001",
+        "mate": 1,
+        "path": "sample_0001_R1.fastq",
+        "size_bytes": 1908736,
+        "sha256": "2b68bafe3e0a5a12c578c433e6e4d8a87208655f2fa28be8af419fd8247298c1"
+      },
+      {
+        "sample_id": "sample_0001",
+        "mate": 2,
+        "path": "sample_0001_R2.fastq",
+        "size_bytes": 1908736,
+        "sha256": "9afb2fa0d57c15b9d7f72f715336c7bb91ff197c7be70425e5e68968f8c00d2b"
+      },
+      {
+        "sample_id": "sample_0002",
+        "mate": 1,
+        "path": "sample_0002_R1.fastq",
+        "size_bytes": 1908736,
+        "sha256": "a497ac42f983770a306446d4e36416b876427d3ff5875d5b0a8ea81debfc85f5"
+      },
+      {
+        "sample_id": "sample_0002",
+        "mate": 2,
+        "path": "sample_0002_R2.fastq",
+        "size_bytes": 1908736,
+        "sha256": "3a4b8bd1de2cdc052012da6028995f815681620faa6fa3916641f851181321b9"
+      },
+      {
+        "sample_id": "sample_0003",
+        "mate": 1,
+        "path": "sample_0003_R1.fastq",
+        "size_bytes": 1908736,
+        "sha256": "ea5671a7c7d934c4b759bc15c7e49d6568220568ce8d692d399b60afd060f527"
+      },
+      {
+        "sample_id": "sample_0003",
+        "mate": 2,
+        "path": "sample_0003_R2.fastq",
+        "size_bytes": 1908736,
+        "sha256": "c86464b7c3646272d27097e3f8a88218dc0b5947568bc8d6f7c18a58fc780ae1"
+      },
+      {
+        "sample_id": "sample_0004",
+        "mate": 1,
+        "path": "sample_0004_R1.fastq",
+        "size_bytes": 1908736,
+        "sha256": "29ad612c2f6fad290468821e8cf4b263c3d4e2cf22e24cad8c880eaabd5126fa"
+      },
+      {
+        "sample_id": "sample_0004",
+        "mate": 2,
+        "path": "sample_0004_R2.fastq",
+        "size_bytes": 1908736,
+        "sha256": "323e43e4e68f5d4ce5941b2cddd59e916c0de35dde6ee3a4f9ebfdb8312b1a68"
+      }
+    ]
+  },
+  "preflight_outside_measurements": true,
+  "cache_control": "None",
+  "trials": [
+    {
+      "interruption_percent": 0,
+      "order_block": 1,
+      "position_in_block": 1,
+      "strategy": "restart",
+      "initial": {
+        "strategy": "restart",
+        "ready": true,
+        "interrupted": false,
+        "error": null,
+        "copied_files": 8,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.1915619719948154,
+        "copy": {
+          "bytes_read": 15269888,
+          "bytes_written": 15269888
+        },
+        "source_verification": {
+          "bytes_read": 15269888
+        },
+        "destination_verification": {
+          "bytes_read": 30539776
+        }
+      },
+      "recovery": null,
+      "total_bytes_written": 15269888,
+      "checks": {
+        "ready": true,
+        "no_error": true,
+        "not_interrupted": true,
+        "copied_all": true,
+        "skipped_none": true,
+        "written_bytes": true
+      },
+      "passed": true
+    },
+    {
+      "interruption_percent": 0,
+      "order_block": 1,
+      "position_in_block": 2,
+      "strategy": "resume",
+      "initial": {
+        "strategy": "resume",
+        "ready": true,
+        "interrupted": false,
+        "error": null,
+        "copied_files": 8,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.19441649100917857,
+        "copy": {
+          "bytes_read": 15269888,
+          "bytes_written": 15269888
+        },
+        "source_verification": {
+          "bytes_read": 15269888
+        },
+        "destination_verification": {
+          "bytes_read": 30539776
+        }
+      },
+      "recovery": null,
+      "total_bytes_written": 15269888,
+      "checks": {
+        "ready": true,
+        "no_error": true,
+        "not_interrupted": true,
+        "copied_all": true,
+        "skipped_none": true,
+        "written_bytes": true
+      },
+      "passed": true
+    },
+    {
+      "interruption_percent": 0,
+      "order_block": 2,
+      "position_in_block": 1,
+      "strategy": "resume",
+      "initial": {
+        "strategy": "resume",
+        "ready": true,
+        "interrupted": false,
+        "error": null,
+        "copied_files": 8,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.19681470798968803,
+        "copy": {
+          "bytes_read": 15269888,
+          "bytes_written": 15269888
+        },
+        "source_verification": {
+          "bytes_read": 15269888
+        },
+        "destination_verification": {
+          "bytes_read": 30539776
+        }
+      },
+      "recovery": null,
+      "total_bytes_written": 15269888,
+      "checks": {
+        "ready": true,
+        "no_error": true,
+        "not_interrupted": true,
+        "copied_all": true,
+        "skipped_none": true,
+        "written_bytes": true
+      },
+      "passed": true
+    },
+    {
+      "interruption_percent": 0,
+      "order_block": 2,
+      "position_in_block": 2,
+      "strategy": "restart",
+      "initial": {
+        "strategy": "restart",
+        "ready": true,
+        "interrupted": false,
+        "error": null,
+        "copied_files": 8,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.18932724800833967,
+        "copy": {
+          "bytes_read": 15269888,
+          "bytes_written": 15269888
+        },
+        "source_verification": {
+          "bytes_read": 15269888
+        },
+        "destination_verification": {
+          "bytes_read": 30539776
+        }
+      },
+      "recovery": null,
+      "total_bytes_written": 15269888,
+      "checks": {
+        "ready": true,
+        "no_error": true,
+        "not_interrupted": true,
+        "copied_all": true,
+        "skipped_none": true,
+        "written_bytes": true
+      },
+      "passed": true
+    },
+    {
+      "interruption_percent": 25,
+      "order_block": 1,
+      "position_in_block": 1,
+      "strategy": "restart",
+      "initial": {
+        "strategy": "restart",
+        "ready": false,
+        "interrupted": true,
+        "error": "Interrupted after 1908736 bytes",
+        "copied_files": 1,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.045371178988716565,
+        "copy": {
+          "bytes_read": 3817472,
+          "bytes_written": 3817472
+        },
+        "source_verification": {
+          "bytes_read": 15269888
+        },
+        "destination_verification": {
+          "bytes_read": 1908736
+        }
+      },
+      "recovery": {
+        "strategy": "restart",
+        "ready": true,
+        "interrupted": false,
+        "error": null,
+        "copied_files": 8,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.19180815799336415,
+        "copy": {
+          "bytes_read": 15269888,
+          "bytes_written": 15269888
+        },
+        "source_verification": {
+          "bytes_read": 15269888
+        },
+        "destination_verification": {
+          "bytes_read": 30539776
+        }
+      },
+      "total_bytes_written": 19087360,
+      "checks": {
+        "interrupted": true,
+        "not_ready_initially": true,
+        "initial_bytes": true,
+        "initial_completed": true,
+        "recovered": true,
+        "no_recovery_error": true,
+        "recovery_bytes": true,
+        "skipped_files": true,
+        "copied_files": true
+      },
+      "passed": true
+    },
+    {
+      "interruption_percent": 25,
+      "order_block": 1,
+      "position_in_block": 2,
+      "strategy": "resume",
+      "initial": {
+        "strategy": "resume",
+        "ready": false,
+        "interrupted": true,
+        "error": "Interrupted after 1908736 bytes",
+        "copied_files": 1,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.0475652080058353,
+        "copy": {
+          "bytes_read": 3817472,
+          "bytes_written": 3817472
+        },
+        "source_verification": {
+          "bytes_read": 15269888
+        },
+        "destination_verification": {
+          "bytes_read": 1908736
+        }
+      },
+      "recovery": {
+        "strategy": "resume",
+        "ready": true,
+        "interrupted": false,
+        "error": null,
+        "copied_files": 7,
+        "skipped_files": 1,
+        "elapsed_seconds": 0.18893868100713007,
+        "copy": {
+          "bytes_read": 13361152,
+          "bytes_written": 13361152
+        },
+        "source_verification": {
+          "bytes_read": 15269888
+        },
+        "destination_verification": {
+          "bytes_read": 30539776
+        }
+      },
+      "total_bytes_written": 17178624,
+      "checks": {
+        "interrupted": true,
+        "not_ready_initially": true,
+        "initial_bytes": true,
+        "initial_completed": true,
+        "recovered": true,
+        "no_recovery_error": true,
+        "recovery_bytes": true,
+        "skipped_files": true,
+        "copied_files": true
+      },
+      "passed": true
+    },
+    {
+      "interruption_percent": 25,
+      "order_block": 2,
+      "position_in_block": 1,
+      "strategy": "resume",
+      "initial": {
+        "strategy": "resume",
+        "ready": false,
+        "interrupted": true,
+        "error": "Interrupted after 1908736 bytes",
+        "copied_files": 1,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.04712483999901451,
+        "copy": {
+          "bytes_read": 3817472,
+          "bytes_written": 3817472
+        },
+        "source_verification": {
+          "bytes_read": 15269888
+        },
+        "destination_verification": {
+          "bytes_read": 1908736
+        }
+      },
+      "recovery": {
+        "strategy": "resume",
+        "ready": true,
+        "interrupted": false,
+        "error": null,
+        "copied_files": 7,
+        "skipped_files": 1,
+        "elapsed_seconds": 0.1842956930049695,
+        "copy": {
+          "bytes_read": 13361152,
+          "bytes_written": 13361152
+        },
+        "source_verification": {
+          "bytes_read": 15269888
+        },
+        "destination_verification": {
+          "bytes_read": 30539776
+        }
+      },
+      "total_bytes_written": 17178624,
+      "checks": {
+        "interrupted": true,
+        "not_ready_initially": true,
+        "initial_bytes": true,
+        "initial_completed": true,
+        "recovered": true,
+        "no_recovery_error": true,
+        "recovery_bytes": true,
+        "skipped_files": true,
+        "copied_files": true
+      },
+      "passed": true
+    },
+    {
+      "interruption_percent": 25,
+      "order_block": 2,
+      "position_in_block": 2,
+      "strategy": "restart",
+      "initial": {
+        "strategy": "restart",
+        "ready": false,
+        "interrupted": true,
+        "error": "Interrupted after 1908736 bytes",
+        "copied_files": 1,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.0618794030015124,
+        "copy": {
+          "bytes_read": 3817472,
+          "bytes_written": 3817472
+        },
+        "source_verification": {
+          "bytes_read": 15269888
+        },
+        "destination_verification": {
+          "bytes_read": 1908736
+        }
+      },
+      "recovery": {
+        "strategy": "restart",
+        "ready": true,
+        "interrupted": false,
+        "error": null,
+        "copied_files": 8,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.19165450699802022,
+        "copy": {
+          "bytes_read": 15269888,
+          "bytes_written": 15269888
+        },
+        "source_verification": {
+          "bytes_read": 15269888
+        },
+        "destination_verification": {
+          "bytes_read": 30539776
+        }
+      },
+      "total_bytes_written": 19087360,
+      "checks": {
+        "interrupted": true,
+        "not_ready_initially": true,
+        "initial_bytes": true,
+        "initial_completed": true,
+        "recovered": true,
+        "no_recovery_error": true,
+        "recovery_bytes": true,
+        "skipped_files": true,
+        "copied_files": true
+      },
+      "passed": true
+    },
+    {
+      "interruption_percent": 50,
+      "order_block": 1,
+      "position_in_block": 1,
+      "strategy": "restart",
+      "initial": {
+        "strategy": "restart",
+        "ready": false,
+        "interrupted": true,
+        "error": "Interrupted after 1908736 bytes",
+        "copied_files": 3,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.07395243899372872,
+        "copy": {
+          "bytes_read": 7634944,
+          "bytes_written": 7634944
+        },
+        "source_verification": {
+          "bytes_read": 15269888
+        },
+        "destination_verification": {
+          "bytes_read": 5726208
+        }
+      },
+      "recovery": {
+        "strategy": "restart",
+        "ready": true,
+        "interrupted": false,
+        "error": null,
+        "copied_files": 8,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.1919225710007595,
+        "copy": {
+          "bytes_read": 15269888,
+          "bytes_written": 15269888
+        },
+        "source_verification": {
+          "bytes_read": 15269888
+        },
+        "destination_verification": {
+          "bytes_read": 30539776
+        }
+      },
+      "total_bytes_written": 22904832,
+      "checks": {
+        "interrupted": true,
+        "not_ready_initially": true,
+        "initial_bytes": true,
+        "initial_completed": true,
+        "recovered": true,
+        "no_recovery_error": true,
+        "recovery_bytes": true,
+        "skipped_files": true,
+        "copied_files": true
+      },
+      "passed": true
+    },
+    {
+      "interruption_percent": 50,
+      "order_block": 1,
+      "position_in_block": 2,
+      "strategy": "resume",
+      "initial": {
+        "strategy": "resume",
+        "ready": false,
+        "interrupted": true,
+        "error": "Interrupted after 1908736 bytes",
+        "copied_files": 3,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.0683920110022882,
+        "copy": {
+          "bytes_read": 7634944,
+          "bytes_written": 7634944
+        },
+        "source_verification": {
+          "bytes_read": 15269888
+        },
+        "destination_verification": {
+          "bytes_read": 5726208
+        }
+      },
+      "recovery": {
+        "strategy": "resume",
+        "ready": true,
+        "interrupted": false,
+        "error": null,
+        "copied_files": 5,
+        "skipped_files": 3,
+        "elapsed_seconds": 0.17366832499101292,
+        "copy": {
+          "bytes_read": 9543680,
+          "bytes_written": 9543680
+        },
+        "source_verification": {
+          "bytes_read": 15269888
+        },
+        "destination_verification": {
+          "bytes_read": 30539776
+        }
+      },
+      "total_bytes_written": 17178624,
+      "checks": {
+        "interrupted": true,
+        "not_ready_initially": true,
+        "initial_bytes": true,
+        "initial_completed": true,
+        "recovered": true,
+        "no_recovery_error": true,
+        "recovery_bytes": true,
+        "skipped_files": true,
+        "copied_files": true
+      },
+      "passed": true
+    },
+    {
+      "interruption_percent": 50,
+      "order_block": 2,
+      "position_in_block": 1,
+      "strategy": "resume",
+      "initial": {
+        "strategy": "resume",
+        "ready": false,
+        "interrupted": true,
+        "error": "Interrupted after 1908736 bytes",
+        "copied_files": 3,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.06792032800149173,
+        "copy": {
+          "bytes_read": 7634944,
+          "bytes_written": 7634944
+        },
+        "source_verification": {
+          "bytes_read": 15269888
+        },
+        "destination_verification": {
+          "bytes_read": 5726208
+        }
+      },
+      "recovery": {
+        "strategy": "resume",
+        "ready": true,
+        "interrupted": false,
+        "error": null,
+        "copied_files": 5,
+        "skipped_files": 3,
+        "elapsed_seconds": 0.1725039349985309,
+        "copy": {
+          "bytes_read": 9543680,
+          "bytes_written": 9543680
+        },
+        "source_verification": {
+          "bytes_read": 15269888
+        },
+        "destination_verification": {
+          "bytes_read": 30539776
+        }
+      },
+      "total_bytes_written": 17178624,
+      "checks": {
+        "interrupted": true,
+        "not_ready_initially": true,
+        "initial_bytes": true,
+        "initial_completed": true,
+        "recovered": true,
+        "no_recovery_error": true,
+        "recovery_bytes": true,
+        "skipped_files": true,
+        "copied_files": true
+      },
+      "passed": true
+    },
+    {
+      "interruption_percent": 50,
+      "order_block": 2,
+      "position_in_block": 2,
+      "strategy": "restart",
+      "initial": {
+        "strategy": "restart",
+        "ready": false,
+        "interrupted": true,
+        "error": "Interrupted after 1908736 bytes",
+        "copied_files": 3,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.06894217400986236,
+        "copy": {
+          "bytes_read": 7634944,
+          "bytes_written": 7634944
+        },
+        "source_verification": {
+          "bytes_read": 15269888
+        },
+        "destination_verification": {
+          "bytes_read": 5726208
+        }
+      },
+      "recovery": {
+        "strategy": "restart",
+        "ready": true,
+        "interrupted": false,
+        "error": null,
+        "copied_files": 8,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.1887496029958129,
+        "copy": {
+          "bytes_read": 15269888,
+          "bytes_written": 15269888
+        },
+        "source_verification": {
+          "bytes_read": 15269888
+        },
+        "destination_verification": {
+          "bytes_read": 30539776
+        }
+      },
+      "total_bytes_written": 22904832,
+      "checks": {
+        "interrupted": true,
+        "not_ready_initially": true,
+        "initial_bytes": true,
+        "initial_completed": true,
+        "recovered": true,
+        "no_recovery_error": true,
+        "recovery_bytes": true,
+        "skipped_files": true,
+        "copied_files": true
+      },
+      "passed": true
+    },
+    {
+      "interruption_percent": 75,
+      "order_block": 1,
+      "position_in_block": 1,
+      "strategy": "restart",
+      "initial": {
+        "strategy": "restart",
+        "ready": false,
+        "interrupted": true,
+        "error": "Interrupted after 1908736 bytes",
+        "copied_files": 5,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.08947345800697803,
+        "copy": {
+          "bytes_read": 11452416,
+          "bytes_written": 11452416
+        },
+        "source_verification": {
+          "bytes_read": 15269888
+        },
+        "destination_verification": {
+          "bytes_read": 9543680
+        }
+      },
+      "recovery": {
+        "strategy": "restart",
+        "ready": true,
+        "interrupted": false,
+        "error": null,
+        "copied_files": 8,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.18973680899944156,
+        "copy": {
+          "bytes_read": 15269888,
+          "bytes_written": 15269888
+        },
+        "source_verification": {
+          "bytes_read": 15269888
+        },
+        "destination_verification": {
+          "bytes_read": 30539776
+        }
+      },
+      "total_bytes_written": 26722304,
+      "checks": {
+        "interrupted": true,
+        "not_ready_initially": true,
+        "initial_bytes": true,
+        "initial_completed": true,
+        "recovered": true,
+        "no_recovery_error": true,
+        "recovery_bytes": true,
+        "skipped_files": true,
+        "copied_files": true
+      },
+      "passed": true
+    },
+    {
+      "interruption_percent": 75,
+      "order_block": 1,
+      "position_in_block": 2,
+      "strategy": "resume",
+      "initial": {
+        "strategy": "resume",
+        "ready": false,
+        "interrupted": true,
+        "error": "Interrupted after 1908736 bytes",
+        "copied_files": 5,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.0904876940039685,
+        "copy": {
+          "bytes_read": 11452416,
+          "bytes_written": 11452416
+        },
+        "source_verification": {
+          "bytes_read": 15269888
+        },
+        "destination_verification": {
+          "bytes_read": 9543680
+        }
+      },
+      "recovery": {
+        "strategy": "resume",
+        "ready": true,
+        "interrupted": false,
+        "error": null,
+        "copied_files": 3,
+        "skipped_files": 5,
+        "elapsed_seconds": 0.15556333200947847,
+        "copy": {
+          "bytes_read": 5726208,
+          "bytes_written": 5726208
+        },
+        "source_verification": {
+          "bytes_read": 15269888
+        },
+        "destination_verification": {
+          "bytes_read": 30539776
+        }
+      },
+      "total_bytes_written": 17178624,
+      "checks": {
+        "interrupted": true,
+        "not_ready_initially": true,
+        "initial_bytes": true,
+        "initial_completed": true,
+        "recovered": true,
+        "no_recovery_error": true,
+        "recovery_bytes": true,
+        "skipped_files": true,
+        "copied_files": true
+      },
+      "passed": true
+    },
+    {
+      "interruption_percent": 75,
+      "order_block": 2,
+      "position_in_block": 1,
+      "strategy": "resume",
+      "initial": {
+        "strategy": "resume",
+        "ready": false,
+        "interrupted": true,
+        "error": "Interrupted after 1908736 bytes",
+        "copied_files": 5,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.13524394699197728,
+        "copy": {
+          "bytes_read": 11452416,
+          "bytes_written": 11452416
+        },
+        "source_verification": {
+          "bytes_read": 15269888
+        },
+        "destination_verification": {
+          "bytes_read": 9543680
+        }
+      },
+      "recovery": {
+        "strategy": "resume",
+        "ready": true,
+        "interrupted": false,
+        "error": null,
+        "copied_files": 3,
+        "skipped_files": 5,
+        "elapsed_seconds": 0.15637069400690962,
+        "copy": {
+          "bytes_read": 5726208,
+          "bytes_written": 5726208
+        },
+        "source_verification": {
+          "bytes_read": 15269888
+        },
+        "destination_verification": {
+          "bytes_read": 30539776
+        }
+      },
+      "total_bytes_written": 17178624,
+      "checks": {
+        "interrupted": true,
+        "not_ready_initially": true,
+        "initial_bytes": true,
+        "initial_completed": true,
+        "recovered": true,
+        "no_recovery_error": true,
+        "recovery_bytes": true,
+        "skipped_files": true,
+        "copied_files": true
+      },
+      "passed": true
+    },
+    {
+      "interruption_percent": 75,
+      "order_block": 2,
+      "position_in_block": 2,
+      "strategy": "restart",
+      "initial": {
+        "strategy": "restart",
+        "ready": false,
+        "interrupted": true,
+        "error": "Interrupted after 1908736 bytes",
+        "copied_files": 5,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.0892594739998458,
+        "copy": {
+          "bytes_read": 11452416,
+          "bytes_written": 11452416
+        },
+        "source_verification": {
+          "bytes_read": 15269888
+        },
+        "destination_verification": {
+          "bytes_read": 9543680
+        }
+      },
+      "recovery": {
+        "strategy": "restart",
+        "ready": true,
+        "interrupted": false,
+        "error": null,
+        "copied_files": 8,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.20874874498986173,
+        "copy": {
+          "bytes_read": 15269888,
+          "bytes_written": 15269888
+        },
+        "source_verification": {
+          "bytes_read": 15269888
+        },
+        "destination_verification": {
+          "bytes_read": 30539776
+        }
+      },
+      "total_bytes_written": 26722304,
+      "checks": {
+        "interrupted": true,
+        "not_ready_initially": true,
+        "initial_bytes": true,
+        "initial_completed": true,
+        "recovered": true,
+        "no_recovery_error": true,
+        "recovery_bytes": true,
+        "skipped_files": true,
+        "copied_files": true
+      },
+      "passed": true
+    }
+  ],
+  "all_passed": true
+}

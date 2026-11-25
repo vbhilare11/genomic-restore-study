@@ -1,0 +1,18 @@
+STDOUT
+PASS: interruption left a partial file without reporting READY.
+
+Recovery run:
+PASS: 6 files verified across 3 complete pairs.
+SKIP verified: sample_001_R1.fastq
+SKIP verified: sample_001_R2.fastq
+COPIED verified: sample_002_R1.fastq
+COPIED verified: sample_002_R2.fastq
+COPIED verified: sample_003_R1.fastq
+COPIED verified: sample_003_R2.fastq
+PASS: 6 files verified across 3 complete pairs.
+Summary: copied=4, skipped=2, file_bytes_copied=91200
+READY: restored files match the source manifest.
+
+PASS: recovery reused 2 verified files and copied the remaining 4.
+
+STDERR

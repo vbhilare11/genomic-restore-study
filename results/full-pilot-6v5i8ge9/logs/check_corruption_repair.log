@@ -1,0 +1,18 @@
+STDOUT
+PASS: same-size corruption detected by checksum.
+
+Repair run:
+PASS: 6 files verified across 3 complete pairs.
+COPIED verified: sample_001_R1.fastq
+SKIP verified: sample_001_R2.fastq
+SKIP verified: sample_002_R1.fastq
+SKIP verified: sample_002_R2.fastq
+SKIP verified: sample_003_R1.fastq
+SKIP verified: sample_003_R2.fastq
+PASS: 6 files verified across 3 complete pairs.
+Summary: copied=1, skipped=5, file_bytes_copied=22800
+READY: restored files match the source manifest.
+
+PASS: corrupted file repaired; the other 5 files were verified and skipped.
+
+STDERR

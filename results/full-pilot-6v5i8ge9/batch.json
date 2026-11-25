@@ -1,0 +1,32 @@
+{
+  "created_utc": "2026-11-25T02:29:21.761547+00:00",
+  "purpose": "Local correctness and accounting pilot",
+  "python": "3.14.2 (main, Dec  5 2025, 16:49:16) [Clang 17.0.0 (clang-1700.6.3.2)]",
+  "platform": "macOS-26.5.1-x86_64-i386-64bit-Mach-O",
+  "git_commit": "14ecb472aca18a8bb82fc24aad08304fca4f5fa0",
+  "git_status_at_start": "?? src/run_full_pilot.py",
+  "cache_control": "None",
+  "file_order": "Manifest order; not randomized",
+  "source_hashes": {
+    "src/compare_local.py": "c8a5f938ac440099e3fe3332ae77d2101a36747a3c4656066e8685b8caa39ab0",
+    "src/generate_dataset.py": "d8b55431f15c26e898124edb7cb2693e37cc5d714182c8d4bfcb44fc07bd56de",
+    "src/generate_workloads.py": "fea86eeb07947b310cba4b85590f84d473b34a22ce584f0b82dd1cdc5d983c45",
+    "src/measured_io.py": "6cb505cd5eca12dd2e49eec142cc6f9ea2773bae8f3bef7275c4d83008e3e5bb",
+    "src/restore_local.py": "84272b760e29bc36adba804a50d2aed2fe37206efb6a5634cb1f65036407de31",
+    "src/restore_resumable.py": "0b28eb28f91f3570ad9a1ac2a9cc47f04a2646128c9a933603fa335c4cee46af",
+    "src/run_balanced_pilot.py": "85ef1165af3f92caf64c78dcb57f90d620cc622dc57aedff6bdb3026c435058a",
+    "src/run_full_pilot.py": "db4f235264d09a95769438eb7a7a4e6781e8bd1e4e4b6f124392eb7a1c57f019",
+    "src/run_pilot.py": "4cb7852964acce42a319a521012aa0ee201de18d0e17bffd20a9e4725cb5b75f",
+    "src/validate_dataset.py": "c54ec517bf215f2aab8aaa1f6f0b18a102849f6ede33a86a4e15ddce9eb0264d",
+    "tests/check_corruption_repair.py": "57786b4f9103da130ce217c09f434bda14a44699d4bd4a20484875f4606bfce5",
+    "tests/check_interrupted_restore.py": "fb0fe7ccffdaf5159fc736190b6d0876fcd492dbdf7e7f5d58c24cea64990a9c",
+    "tests/check_measured_io.py": "d226bc4b6f70e19c963cd796c442df613d6400cadaecd9fc654fb4a315f7f718",
+    "tests/check_resume.py": "c22d8a7b86cdff0b2c9cdae6cd3a9e680d6f0de697c2bd430f5776bfeb8fbd6e",
+    "tests/check_validation.py": "6fc64a0fce63b8378bddd59d1d1be928b0178e2356e1e542931040301d98bf1d",
+    "tests/check_verification_io.py": "ff73bcf6a7fba902ad5eb268750aff71ca6adcf90c8bbf979678cc80f0e67cf0"
+  },
+  "all_passed": true,
+  "payload_bytes_per_workload": 15269888,
+  "check_scripts_passed": 6,
+  "trials_collected": 48
+}

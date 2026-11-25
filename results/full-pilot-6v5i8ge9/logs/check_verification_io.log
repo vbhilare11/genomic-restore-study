@@ -1,0 +1,5 @@
+STDOUT
+PASS: 0-byte file verified twice; counted 0 bytes.
+PASS: 100-byte file verified twice; counted 200 bytes.
+
+STDERR

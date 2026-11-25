@@ -1,0 +1,7 @@
+STDOUT
+PASS: interruption at 0 bytes counted correctly.
+PASS: interruption at 35 bytes counted correctly.
+PASS: interruption at 100 bytes counted correctly.
+PASS: complete copy verified; read=100 bytes, written=100 bytes.
+
+STDERR

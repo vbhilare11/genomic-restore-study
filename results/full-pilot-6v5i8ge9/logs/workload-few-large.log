@@ -1,0 +1,23 @@
+STDOUT
+PASS: 8 files verified across 4 complete pairs.
+PASS: 0% block=1 position=1 restart; written=15,269,888
+PASS: 0% block=1 position=2 resume; written=15,269,888
+PASS: 0% block=2 position=1 resume; written=15,269,888
+PASS: 0% block=2 position=2 restart; written=15,269,888
+PASS: 25% block=1 position=1 restart; written=19,087,360
+PASS: 25% block=1 position=2 resume; written=17,178,624
+PASS: 25% block=2 position=1 resume; written=17,178,624
+PASS: 25% block=2 position=2 restart; written=19,087,360
+PASS: 50% block=1 position=1 restart; written=22,904,832
+PASS: 50% block=1 position=2 resume; written=17,178,624
+PASS: 50% block=2 position=1 resume; written=17,178,624
+PASS: 50% block=2 position=2 restart; written=22,904,832
+PASS: 75% block=1 position=1 restart; written=26,722,304
+PASS: 75% block=1 position=2 resume; written=17,178,624
+PASS: 75% block=2 position=1 resume; written=17,178,624
+PASS: 75% block=2 position=2 restart; written=26,722,304
+
+Report saved: /Users/vbhilare/Projects/genomic-restore-study/results/balanced-ce4yfekz/report.json
+PASS: all 16 balanced pilot trials passed.
+
+STDERR

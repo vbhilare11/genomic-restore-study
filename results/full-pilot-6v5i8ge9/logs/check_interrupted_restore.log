@@ -1,0 +1,11 @@
+STDOUT
+PASS: 6 files verified across 3 complete pairs.
+
+Destination: /var/folders/p6/10pnnjgj53z31k7ps5snpctm0000gn/T/restore-interruption-6dpzy8ur/restored
+Copied: sample_001_R1.fastq
+Copied: sample_001_R2.fastq
+NOT READY: restoration stopped: Injected interruption during third file
+
+PASS: interrupted restoration exited with failure and never reported READY.
+
+STDERR

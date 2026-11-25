@@ -1,0 +1,16 @@
+STDOUT
+
+intact:
+PASS: 6 files verified across 3 complete pairs.
+
+missing_file:
+FAIL: dataset is not ready.
+  - Missing file: sample_001_R1.fastq
+
+modified_file:
+FAIL: dataset is not ready.
+  - Checksum mismatch: sample_001_R1.fastq
+
+All 3 checks passed. Original dataset unchanged.
+
+STDERR
