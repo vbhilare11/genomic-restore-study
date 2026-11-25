@@ -59,3 +59,28 @@ def copy_measured(
                 metrics.bytes_written += written
                 copied_this_call += written
                 view = view[written:]
+
+
+@dataclass
+class VerificationMetrics:
+    bytes_read: int = 0
+
+
+def sha256_measured(
+    path: Path,
+    metrics: VerificationMetrics,
+    *,
+    chunk_size: int = 1024 * 1024,
+):
+    import hashlib
+
+    if chunk_size <= 0:
+        raise ValueError("chunk_size must be positive")
+
+    digest = hashlib.sha256()
+    with path.open("rb") as reader:
+        while content := reader.read(chunk_size):
+            metrics.bytes_read += len(content)
+            digest.update(content)
+
+    return digest.hexdigest()
