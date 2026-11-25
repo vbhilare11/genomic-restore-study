@@ -1,0 +1,394 @@
+{
+  "purpose": "Local accounting checks, not performance conclusions",
+  "created_utc": "2026-11-25T02:06:50.314974+00:00",
+  "python": "3.14.2 (main, Dec  5 2025, 16:49:16) [Clang 17.0.0 (clang-1700.6.3.2)]",
+  "platform": "macOS-26.5.1-x86_64-i386-64bit-Mach-O",
+  "git_commit": "9e731e3e586cbdf94f90539f0f723f4a948827b3",
+  "git_status_at_start": [
+    "?? src/run_pilot.py"
+  ],
+  "manifest": {
+    "schema_version": 1,
+    "dataset_id": "synthetic-paired-fastq-v1",
+    "seed": 42,
+    "reads_per_file": 100,
+    "read_length": 100,
+    "files": [
+      {
+        "sample_id": "sample_001",
+        "mate": 1,
+        "path": "sample_001_R1.fastq",
+        "size_bytes": 22800,
+        "sha256": "6ad5acf5cfb9c73b1689b3cfb16cfb37365b3d83a6bdc035e4da5beda01dc0bc"
+      },
+      {
+        "sample_id": "sample_001",
+        "mate": 2,
+        "path": "sample_001_R2.fastq",
+        "size_bytes": 22800,
+        "sha256": "aa7d956239499e392859a7af8066ed7a03a74872e78739402f7bb07557ae2612"
+      },
+      {
+        "sample_id": "sample_002",
+        "mate": 1,
+        "path": "sample_002_R1.fastq",
+        "size_bytes": 22800,
+        "sha256": "d99735c14a19474a8a2c5969e7a24c134e503841bf27a08ebc9f281762b4f00d"
+      },
+      {
+        "sample_id": "sample_002",
+        "mate": 2,
+        "path": "sample_002_R2.fastq",
+        "size_bytes": 22800,
+        "sha256": "72dd2d55789d1cf1a95889c5361412828a2c709a7645600ecfe8f7385a023d10"
+      },
+      {
+        "sample_id": "sample_003",
+        "mate": 1,
+        "path": "sample_003_R1.fastq",
+        "size_bytes": 22800,
+        "sha256": "9abc6a778f6494b36b90ca71984a7a0f7a727fe41582025f95581ee29221c204"
+      },
+      {
+        "sample_id": "sample_003",
+        "mate": 2,
+        "path": "sample_003_R2.fastq",
+        "size_bytes": 22800,
+        "sha256": "15ce3848d34f1e100f02ceb67782b0b363b70827179ec499181b28216cac2f11"
+      }
+    ]
+  },
+  "trials": [
+    {
+      "interruption_percent": 25,
+      "strategy": "restart",
+      "initial": {
+        "strategy": "restart",
+        "ready": false,
+        "interrupted": true,
+        "error": "Interrupted after 11400 bytes",
+        "copied_files": 1,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.05523979099234566,
+        "copy": {
+          "bytes_read": 34200,
+          "bytes_written": 34200
+        },
+        "source_verification": {
+          "bytes_read": 136800
+        },
+        "destination_verification": {
+          "bytes_read": 22800
+        }
+      },
+      "recovery": {
+        "strategy": "restart",
+        "ready": true,
+        "interrupted": false,
+        "error": null,
+        "copied_files": 6,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.07375746199977584,
+        "copy": {
+          "bytes_read": 136800,
+          "bytes_written": 136800
+        },
+        "source_verification": {
+          "bytes_read": 136800
+        },
+        "destination_verification": {
+          "bytes_read": 273600
+        }
+      },
+      "total_bytes_written": 171000,
+      "checks": {
+        "initial_interrupted": true,
+        "initial_not_ready": true,
+        "initial_bytes": true,
+        "initial_completed_files": true,
+        "recovery_ready": true,
+        "recovery_no_error": true,
+        "recovery_bytes": true,
+        "recovery_skipped_files": true,
+        "recovery_copied_files": true
+      },
+      "passed": true
+    },
+    {
+      "interruption_percent": 25,
+      "strategy": "resume",
+      "initial": {
+        "strategy": "resume",
+        "ready": false,
+        "interrupted": true,
+        "error": "Interrupted after 11400 bytes",
+        "copied_files": 1,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.011356199989677407,
+        "copy": {
+          "bytes_read": 34200,
+          "bytes_written": 34200
+        },
+        "source_verification": {
+          "bytes_read": 136800
+        },
+        "destination_verification": {
+          "bytes_read": 22800
+        }
+      },
+      "recovery": {
+        "strategy": "resume",
+        "ready": true,
+        "interrupted": false,
+        "error": null,
+        "copied_files": 5,
+        "skipped_files": 1,
+        "elapsed_seconds": 0.21922094300680328,
+        "copy": {
+          "bytes_read": 114000,
+          "bytes_written": 114000
+        },
+        "source_verification": {
+          "bytes_read": 136800
+        },
+        "destination_verification": {
+          "bytes_read": 273600
+        }
+      },
+      "total_bytes_written": 148200,
+      "checks": {
+        "initial_interrupted": true,
+        "initial_not_ready": true,
+        "initial_bytes": true,
+        "initial_completed_files": true,
+        "recovery_ready": true,
+        "recovery_no_error": true,
+        "recovery_bytes": true,
+        "recovery_skipped_files": true,
+        "recovery_copied_files": true
+      },
+      "passed": true
+    },
+    {
+      "interruption_percent": 50,
+      "strategy": "resume",
+      "initial": {
+        "strategy": "resume",
+        "ready": false,
+        "interrupted": true,
+        "error": "Interrupted after 22800 bytes",
+        "copied_files": 2,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.02283729799091816,
+        "copy": {
+          "bytes_read": 68400,
+          "bytes_written": 68400
+        },
+        "source_verification": {
+          "bytes_read": 136800
+        },
+        "destination_verification": {
+          "bytes_read": 45600
+        }
+      },
+      "recovery": {
+        "strategy": "resume",
+        "ready": true,
+        "interrupted": false,
+        "error": null,
+        "copied_files": 4,
+        "skipped_files": 2,
+        "elapsed_seconds": 0.09937726499629207,
+        "copy": {
+          "bytes_read": 91200,
+          "bytes_written": 91200
+        },
+        "source_verification": {
+          "bytes_read": 136800
+        },
+        "destination_verification": {
+          "bytes_read": 273600
+        }
+      },
+      "total_bytes_written": 159600,
+      "checks": {
+        "initial_interrupted": true,
+        "initial_not_ready": true,
+        "initial_bytes": true,
+        "initial_completed_files": true,
+        "recovery_ready": true,
+        "recovery_no_error": true,
+        "recovery_bytes": true,
+        "recovery_skipped_files": true,
+        "recovery_copied_files": true
+      },
+      "passed": true
+    },
+    {
+      "interruption_percent": 50,
+      "strategy": "restart",
+      "initial": {
+        "strategy": "restart",
+        "ready": false,
+        "interrupted": true,
+        "error": "Interrupted after 22800 bytes",
+        "copied_files": 2,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.03732044200296514,
+        "copy": {
+          "bytes_read": 68400,
+          "bytes_written": 68400
+        },
+        "source_verification": {
+          "bytes_read": 136800
+        },
+        "destination_verification": {
+          "bytes_read": 45600
+        }
+      },
+      "recovery": {
+        "strategy": "restart",
+        "ready": true,
+        "interrupted": false,
+        "error": null,
+        "copied_files": 6,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.1513663460063981,
+        "copy": {
+          "bytes_read": 136800,
+          "bytes_written": 136800
+        },
+        "source_verification": {
+          "bytes_read": 136800
+        },
+        "destination_verification": {
+          "bytes_read": 273600
+        }
+      },
+      "total_bytes_written": 205200,
+      "checks": {
+        "initial_interrupted": true,
+        "initial_not_ready": true,
+        "initial_bytes": true,
+        "initial_completed_files": true,
+        "recovery_ready": true,
+        "recovery_no_error": true,
+        "recovery_bytes": true,
+        "recovery_skipped_files": true,
+        "recovery_copied_files": true
+      },
+      "passed": true
+    },
+    {
+      "interruption_percent": 75,
+      "strategy": "restart",
+      "initial": {
+        "strategy": "restart",
+        "ready": false,
+        "interrupted": true,
+        "error": "Interrupted after 11400 bytes",
+        "copied_files": 4,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.040904670997406356,
+        "copy": {
+          "bytes_read": 102600,
+          "bytes_written": 102600
+        },
+        "source_verification": {
+          "bytes_read": 136800
+        },
+        "destination_verification": {
+          "bytes_read": 91200
+        }
+      },
+      "recovery": {
+        "strategy": "restart",
+        "ready": true,
+        "interrupted": false,
+        "error": null,
+        "copied_files": 6,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.0698201369959861,
+        "copy": {
+          "bytes_read": 136800,
+          "bytes_written": 136800
+        },
+        "source_verification": {
+          "bytes_read": 136800
+        },
+        "destination_verification": {
+          "bytes_read": 273600
+        }
+      },
+      "total_bytes_written": 239400,
+      "checks": {
+        "initial_interrupted": true,
+        "initial_not_ready": true,
+        "initial_bytes": true,
+        "initial_completed_files": true,
+        "recovery_ready": true,
+        "recovery_no_error": true,
+        "recovery_bytes": true,
+        "recovery_skipped_files": true,
+        "recovery_copied_files": true
+      },
+      "passed": true
+    },
+    {
+      "interruption_percent": 75,
+      "strategy": "resume",
+      "initial": {
+        "strategy": "resume",
+        "ready": false,
+        "interrupted": true,
+        "error": "Interrupted after 11400 bytes",
+        "copied_files": 4,
+        "skipped_files": 0,
+        "elapsed_seconds": 0.02594376700290013,
+        "copy": {
+          "bytes_read": 102600,
+          "bytes_written": 102600
+        },
+        "source_verification": {
+          "bytes_read": 136800
+        },
+        "destination_verification": {
+          "bytes_read": 91200
+        }
+      },
+      "recovery": {
+        "strategy": "resume",
+        "ready": true,
+        "interrupted": false,
+        "error": null,
+        "copied_files": 2,
+        "skipped_files": 4,
+        "elapsed_seconds": 0.044069000010495074,
+        "copy": {
+          "bytes_read": 45600,
+          "bytes_written": 45600
+        },
+        "source_verification": {
+          "bytes_read": 136800
+        },
+        "destination_verification": {
+          "bytes_read": 273600
+        }
+      },
+      "total_bytes_written": 148200,
+      "checks": {
+        "initial_interrupted": true,
+        "initial_not_ready": true,
+        "initial_bytes": true,
+        "initial_completed_files": true,
+        "recovery_ready": true,
+        "recovery_no_error": true,
+        "recovery_bytes": true,
+        "recovery_skipped_files": true,
+        "recovery_copied_files": true
+      },
+      "passed": true
+    }
+  ],
+  "all_passed": true
+}
