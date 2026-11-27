@@ -9,3 +9,14 @@ variable "tenant_id" {
   type        = string
   nullable    = false
 }
+
+variable "storage_account_name" {
+  description = "Globally unique name for the research storage account."
+  type        = string
+}
+
+variable "location" {
+  description = "Azure region for the research environment."
+  type        = string
+  default     = "eastus2"
+}
