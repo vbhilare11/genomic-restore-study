@@ -1,0 +1,1161 @@
+{
+  "experiment": "controlled-polling-replay",
+  "scope": "Virtual availability timelines; real local fixture copying and validation. No Azure requests or cloud performance measurements.",
+  "git_commit": "1787d2b47f99dec2e6ef421c69684a3ad867bd11",
+  "git_status": "?? results/archive-status-059eca412904/\n?? results/archive-status-511409004efb/\n?? results/archive-status-de54c369f49d/\n?? results/balanced-877ua2cw/\n?? results/balanced-bujte8z_/\n?? results/balanced-ce4yfekz/\n",
+  "python": "3.14.2 (main, Dec  5 2025, 16:49:16) [Clang 17.0.0 (clang-1700.6.3.2)]",
+  "platform": "macOS-26.7.3-x86_64-i386-64bit-Mach-O",
+  "scenarios": [
+    {
+      "name": "simultaneous",
+      "available_at": [
+        120,
+        120,
+        120,
+        120,
+        120,
+        120
+      ],
+      "expected": "verified"
+    },
+    {
+      "name": "staggered",
+      "available_at": [
+        30,
+        60,
+        90,
+        120,
+        150,
+        180
+      ],
+      "expected": "verified"
+    },
+    {
+      "name": "one_unavailable",
+      "available_at": [
+        120,
+        120,
+        120,
+        120,
+        120,
+        null
+      ],
+      "expected": "timeout"
+    },
+    {
+      "name": "temporary_observation_failure",
+      "available_at": [
+        120,
+        120,
+        120,
+        120,
+        120,
+        120
+      ],
+      "failure_window": [
+        110,
+        190
+      ],
+      "expected": "verified"
+    },
+    {
+      "name": "temporarily_omitted_file",
+      "available_at": [
+        120,
+        120,
+        120,
+        120,
+        120,
+        120
+      ],
+      "omission_window": [
+        110,
+        190
+      ],
+      "expected": "verified"
+    },
+    {
+      "name": "corrupt_payload",
+      "available_at": [
+        120,
+        120,
+        120,
+        120,
+        120,
+        120
+      ],
+      "corrupt": true,
+      "expected": "verification_failed"
+    }
+  ],
+  "timeout_virtual_seconds": 900,
+  "fixed_interval_seconds": 60,
+  "adaptive_intervals_seconds": [
+    15,
+    30,
+    60,
+    120,
+    240,
+    300
+  ],
+  "interval_rule": "Intervals continue after failed observations.",
+  "trials": [
+    {
+      "strategy": "fixed",
+      "scenario": "simultaneous",
+      "status": "verified",
+      "logical_observation_attempts": 3,
+      "failed_observations": 0,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 60,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 120,
+          "result": "online_unverified",
+          "blockers": []
+        }
+      ],
+      "all_available_at_virtual_seconds": 120,
+      "first_online_at_virtual_seconds": 120,
+      "detection_delay_virtual_seconds": 0,
+      "local_fixture_copy_attempts": 1,
+      "premature_verified": false,
+      "validation_output": "PASS: 6 files verified across 3 complete pairs.\n",
+      "timeout_virtual_seconds": 900,
+      "passed": true
+    },
+    {
+      "strategy": "adaptive",
+      "scenario": "simultaneous",
+      "status": "verified",
+      "logical_observation_attempts": 5,
+      "failed_observations": 0,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 15,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 45,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 105,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 225,
+          "result": "online_unverified",
+          "blockers": []
+        }
+      ],
+      "all_available_at_virtual_seconds": 120,
+      "first_online_at_virtual_seconds": 225,
+      "detection_delay_virtual_seconds": 105,
+      "local_fixture_copy_attempts": 1,
+      "premature_verified": false,
+      "validation_output": "PASS: 6 files verified across 3 complete pairs.\n",
+      "timeout_virtual_seconds": 900,
+      "passed": true
+    },
+    {
+      "strategy": "fixed",
+      "scenario": "staggered",
+      "status": "verified",
+      "logical_observation_attempts": 4,
+      "failed_observations": 0,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 60,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 120,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 180,
+          "result": "online_unverified",
+          "blockers": []
+        }
+      ],
+      "all_available_at_virtual_seconds": 180,
+      "first_online_at_virtual_seconds": 180,
+      "detection_delay_virtual_seconds": 0,
+      "local_fixture_copy_attempts": 1,
+      "premature_verified": false,
+      "validation_output": "PASS: 6 files verified across 3 complete pairs.\n",
+      "timeout_virtual_seconds": 900,
+      "passed": true
+    },
+    {
+      "strategy": "adaptive",
+      "scenario": "staggered",
+      "status": "verified",
+      "logical_observation_attempts": 5,
+      "failed_observations": 0,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 15,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 45,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 105,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 225,
+          "result": "online_unverified",
+          "blockers": []
+        }
+      ],
+      "all_available_at_virtual_seconds": 180,
+      "first_online_at_virtual_seconds": 225,
+      "detection_delay_virtual_seconds": 45,
+      "local_fixture_copy_attempts": 1,
+      "premature_verified": false,
+      "validation_output": "PASS: 6 files verified across 3 complete pairs.\n",
+      "timeout_virtual_seconds": 900,
+      "passed": true
+    },
+    {
+      "strategy": "fixed",
+      "scenario": "one_unavailable",
+      "status": "timeout",
+      "logical_observation_attempts": 16,
+      "failed_observations": 0,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 60,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 120,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 180,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 240,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 300,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 360,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 420,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 480,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 540,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 600,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 660,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 720,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 780,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 840,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 900,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        }
+      ],
+      "all_available_at_virtual_seconds": null,
+      "first_online_at_virtual_seconds": null,
+      "detection_delay_virtual_seconds": null,
+      "local_fixture_copy_attempts": 0,
+      "premature_verified": false,
+      "timeout_virtual_seconds": 900,
+      "passed": true
+    },
+    {
+      "strategy": "adaptive",
+      "scenario": "one_unavailable",
+      "status": "timeout",
+      "logical_observation_attempts": 7,
+      "failed_observations": 0,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 15,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 45,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 105,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 225,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 465,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 765,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        }
+      ],
+      "all_available_at_virtual_seconds": null,
+      "first_online_at_virtual_seconds": null,
+      "detection_delay_virtual_seconds": null,
+      "local_fixture_copy_attempts": 0,
+      "premature_verified": false,
+      "timeout_virtual_seconds": 900,
+      "passed": true
+    },
+    {
+      "strategy": "fixed",
+      "scenario": "temporary_observation_failure",
+      "status": "verified",
+      "logical_observation_attempts": 5,
+      "failed_observations": 2,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 60,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 120,
+          "result": "observation_failed"
+        },
+        {
+          "virtual_seconds": 180,
+          "result": "observation_failed"
+        },
+        {
+          "virtual_seconds": 240,
+          "result": "online_unverified",
+          "blockers": []
+        }
+      ],
+      "all_available_at_virtual_seconds": 120,
+      "first_online_at_virtual_seconds": 240,
+      "detection_delay_virtual_seconds": 120,
+      "local_fixture_copy_attempts": 1,
+      "premature_verified": false,
+      "validation_output": "PASS: 6 files verified across 3 complete pairs.\n",
+      "timeout_virtual_seconds": 900,
+      "passed": true
+    },
+    {
+      "strategy": "adaptive",
+      "scenario": "temporary_observation_failure",
+      "status": "verified",
+      "logical_observation_attempts": 5,
+      "failed_observations": 0,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 15,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 45,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 105,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 225,
+          "result": "online_unverified",
+          "blockers": []
+        }
+      ],
+      "all_available_at_virtual_seconds": 120,
+      "first_online_at_virtual_seconds": 225,
+      "detection_delay_virtual_seconds": 105,
+      "local_fixture_copy_attempts": 1,
+      "premature_verified": false,
+      "validation_output": "PASS: 6 files verified across 3 complete pairs.\n",
+      "timeout_virtual_seconds": 900,
+      "passed": true
+    },
+    {
+      "strategy": "fixed",
+      "scenario": "temporarily_omitted_file",
+      "status": "verified",
+      "logical_observation_attempts": 5,
+      "failed_observations": 0,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 60,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 120,
+          "result": "blocked",
+          "blockers": [
+            "Missing: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 180,
+          "result": "blocked",
+          "blockers": [
+            "Missing: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 240,
+          "result": "online_unverified",
+          "blockers": []
+        }
+      ],
+      "all_available_at_virtual_seconds": 120,
+      "first_online_at_virtual_seconds": 240,
+      "detection_delay_virtual_seconds": 120,
+      "local_fixture_copy_attempts": 1,
+      "premature_verified": false,
+      "validation_output": "PASS: 6 files verified across 3 complete pairs.\n",
+      "timeout_virtual_seconds": 900,
+      "passed": true
+    },
+    {
+      "strategy": "adaptive",
+      "scenario": "temporarily_omitted_file",
+      "status": "verified",
+      "logical_observation_attempts": 5,
+      "failed_observations": 0,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 15,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 45,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 105,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 225,
+          "result": "online_unverified",
+          "blockers": []
+        }
+      ],
+      "all_available_at_virtual_seconds": 120,
+      "first_online_at_virtual_seconds": 225,
+      "detection_delay_virtual_seconds": 105,
+      "local_fixture_copy_attempts": 1,
+      "premature_verified": false,
+      "validation_output": "PASS: 6 files verified across 3 complete pairs.\n",
+      "timeout_virtual_seconds": 900,
+      "passed": true
+    },
+    {
+      "strategy": "fixed",
+      "scenario": "corrupt_payload",
+      "status": "verification_failed",
+      "logical_observation_attempts": 3,
+      "failed_observations": 0,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 60,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 120,
+          "result": "online_unverified",
+          "blockers": []
+        }
+      ],
+      "all_available_at_virtual_seconds": 120,
+      "first_online_at_virtual_seconds": 120,
+      "detection_delay_virtual_seconds": 0,
+      "local_fixture_copy_attempts": 1,
+      "premature_verified": false,
+      "validation_output": "FAIL: dataset is not ready.\n  - Checksum mismatch: sample_001_R1.fastq\n",
+      "timeout_virtual_seconds": 900,
+      "passed": true
+    },
+    {
+      "strategy": "adaptive",
+      "scenario": "corrupt_payload",
+      "status": "verification_failed",
+      "logical_observation_attempts": 5,
+      "failed_observations": 0,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 15,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 45,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 105,
+          "result": "blocked",
+          "blockers": [
+            "Not Hot: replay/dataset/sample_001_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R1.fastq",
+            "Not Hot: replay/dataset/sample_001_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_001_R2.fastq",
+            "Not Hot: replay/dataset/sample_002_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R1.fastq",
+            "Not Hot: replay/dataset/sample_002_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_002_R2.fastq",
+            "Not Hot: replay/dataset/sample_003_R1.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R1.fastq",
+            "Not Hot: replay/dataset/sample_003_R2.fastq",
+            "Rehydration pending: replay/dataset/sample_003_R2.fastq"
+          ]
+        },
+        {
+          "virtual_seconds": 225,
+          "result": "online_unverified",
+          "blockers": []
+        }
+      ],
+      "all_available_at_virtual_seconds": 120,
+      "first_online_at_virtual_seconds": 225,
+      "detection_delay_virtual_seconds": 105,
+      "local_fixture_copy_attempts": 1,
+      "premature_verified": false,
+      "validation_output": "FAIL: dataset is not ready.\n  - Checksum mismatch: sample_001_R1.fastq\n",
+      "timeout_virtual_seconds": 900,
+      "passed": true
+    }
+  ],
+  "all_passed": true
+}
