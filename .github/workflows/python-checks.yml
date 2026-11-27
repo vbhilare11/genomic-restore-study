@@ -36,6 +36,9 @@ jobs:
       - name: Test archive availability gate
         run: python tests/check_archive_gate.py
 
+      - name: Verify polling schedules and accounting
+        run: python tests/check_polling_accounting.py
+
       - name: Run correctness checks and full pilot
         run: python src/run_full_pilot.py
 
