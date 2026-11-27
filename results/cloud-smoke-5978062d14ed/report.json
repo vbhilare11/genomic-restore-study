@@ -1,0 +1,20 @@
+{
+  "run_id": "5978062d14ed",
+  "started_at": "2026-11-27T03:15:57.240030+00:00",
+  "experiment": "hot-tier-round-trip",
+  "prefix": "smoke/5978062d14ed",
+  "status": "passed",
+  "git_commit": "545a944d0748fec65ca4564d3d87bdfecf9573d0",
+  "git_status": "?? results/balanced-877ua2cw/\n?? results/balanced-bujte8z_/\n?? results/balanced-ce4yfekz/\n",
+  "storage": {
+    "blob_endpoint": "https://vipsrestore1419b7f1a5.blob.core.windows.net/",
+    "container_name": "restore-lab",
+    "resource_group_name": "rg-genomic-restore-study",
+    "storage_account_id": "/subscriptions/518cf38b-320b-4485-a9a2-8b3eff87cb62/resourceGroups/rg-genomic-restore-study/providers/Microsoft.Storage/storageAccounts/vipsrestore1419b7f1a5",
+    "storage_account_name": "vipsrestore1419b7f1a5"
+  },
+  "subscription_id": "518cf38b-320b-4485-a9a2-8b3eff87cb62",
+  "verified_files": 6,
+  "verified_payload_bytes": 136800,
+  "finished_at": "2026-11-27T03:16:32.421213+00:00"
+}
