@@ -59,7 +59,7 @@ def main():
     manifest_properties = inventory[f"{prefix}/manifest.json"]["properties"]
     if (
         manifest_properties.get("blobTier") != "Hot"
-        or manifest_properties.get("archiveStatus")
+        or manifest_properties.get("rehydrationStatus")
     ):
         raise ValueError("Remote manifest must remain Hot with no pending operation")
 
@@ -70,7 +70,7 @@ def main():
         if properties.get("contentLength") != entry["size_bytes"]:
             raise ValueError(f"Remote size differs: {name}")
         tier = properties.get("blobTier")
-        pending = properties.get("archiveStatus")
+        pending = properties.get("rehydrationStatus")
         if tier == "Hot" and not pending:
             action = "already_hot"
         elif tier == "Archive" and pending == "rehydrate-pending-to-hot":

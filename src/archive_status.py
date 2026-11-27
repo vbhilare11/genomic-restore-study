@@ -72,7 +72,7 @@ def main():
     for blob in blobs:
         properties = blob.get("properties") or {}
         tier = properties.get("blobTier") or "unknown"
-        pending = properties.get("archiveStatus") or "none reported"
+        pending = properties.get("rehydrationStatus") or "none reported"
         print(f"{blob['name']} | tier={tier} | archive_status={pending}")
 
     print(f"\nObserved {len(blobs)} blobs.")
