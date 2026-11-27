@@ -1,0 +1,46 @@
+name: Python checks and local pilot
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  local-pilot:
+    name: Correctness checks and 48-trial pilot
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      - name: Record Python version
+        run: python --version
+
+      - name: Generate synthetic fixtures
+        run: |
+          python src/generate_dataset.py
+          python src/generate_workloads.py
+
+      - name: Run correctness checks and full pilot
+        run: python src/run_full_pilot.py
+
+      - name: Save pilot reports and logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: local-pilot-${{ github.run_id }}-${{ github.run_attempt }}
+          path: results/full-pilot-*/
+          if-no-files-found: warn
+          retention-days: 14
