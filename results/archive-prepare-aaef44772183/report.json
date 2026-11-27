@@ -1,0 +1,106 @@
+{
+  "experiment_id": "aaef44772183",
+  "started_at": "2026-11-27T03:28:05.533043+00:00",
+  "git_commit": "eed76ad4c229b854d6587111d8159f6c4ea5b8c5",
+  "prefix": "archive/aaef44772183",
+  "storage": {
+    "blob_endpoint": "https://vipsrestore1419b7f1a5.blob.core.windows.net/",
+    "container_name": "restore-lab",
+    "resource_group_name": "rg-genomic-restore-study",
+    "storage_account_id": "/subscriptions/518cf38b-320b-4485-a9a2-8b3eff87cb62/resourceGroups/rg-genomic-restore-study/providers/Microsoft.Storage/storageAccounts/vipsrestore1419b7f1a5",
+    "storage_account_name": "vipsrestore1419b7f1a5"
+  },
+  "manifest_sha256": "2b473f6e69c92bc17766d7d5a1dd425c240836900989fce0acf5af84731da113",
+  "manifest": {
+    "schema_version": 1,
+    "dataset_id": "synthetic-paired-fastq-v1",
+    "seed": 42,
+    "reads_per_file": 100,
+    "read_length": 100,
+    "files": [
+      {
+        "sample_id": "sample_001",
+        "mate": 1,
+        "path": "sample_001_R1.fastq",
+        "size_bytes": 22800,
+        "sha256": "6ad5acf5cfb9c73b1689b3cfb16cfb37365b3d83a6bdc035e4da5beda01dc0bc"
+      },
+      {
+        "sample_id": "sample_001",
+        "mate": 2,
+        "path": "sample_001_R2.fastq",
+        "size_bytes": 22800,
+        "sha256": "aa7d956239499e392859a7af8066ed7a03a74872e78739402f7bb07557ae2612"
+      },
+      {
+        "sample_id": "sample_002",
+        "mate": 1,
+        "path": "sample_002_R1.fastq",
+        "size_bytes": 22800,
+        "sha256": "d99735c14a19474a8a2c5969e7a24c134e503841bf27a08ebc9f281762b4f00d"
+      },
+      {
+        "sample_id": "sample_002",
+        "mate": 2,
+        "path": "sample_002_R2.fastq",
+        "size_bytes": 22800,
+        "sha256": "72dd2d55789d1cf1a95889c5361412828a2c709a7645600ecfe8f7385a023d10"
+      },
+      {
+        "sample_id": "sample_003",
+        "mate": 1,
+        "path": "sample_003_R1.fastq",
+        "size_bytes": 22800,
+        "sha256": "9abc6a778f6494b36b90ca71984a7a0f7a727fe41582025f95581ee29221c204"
+      },
+      {
+        "sample_id": "sample_003",
+        "mate": 2,
+        "path": "sample_003_R2.fastq",
+        "size_bytes": 22800,
+        "sha256": "15ce3848d34f1e100f02ceb67782b0b363b70827179ec499181b28216cac2f11"
+      }
+    ]
+  },
+  "status": "archive_requests_succeeded",
+  "archive_requests": [
+    {
+      "blob": "archive/aaef44772183/sample_001_R1.fastq",
+      "requested_at": "2026-11-27T03:28:11.993190+00:00",
+      "status": "request_succeeded",
+      "response_received_at": "2026-11-27T03:28:15.597832+00:00"
+    },
+    {
+      "blob": "archive/aaef44772183/sample_001_R2.fastq",
+      "requested_at": "2026-11-27T03:28:15.607714+00:00",
+      "status": "request_succeeded",
+      "response_received_at": "2026-11-27T03:28:19.102446+00:00"
+    },
+    {
+      "blob": "archive/aaef44772183/sample_002_R1.fastq",
+      "requested_at": "2026-11-27T03:28:19.113156+00:00",
+      "status": "request_succeeded",
+      "response_received_at": "2026-11-27T03:28:23.019091+00:00"
+    },
+    {
+      "blob": "archive/aaef44772183/sample_002_R2.fastq",
+      "requested_at": "2026-11-27T03:28:23.045971+00:00",
+      "status": "request_succeeded",
+      "response_received_at": "2026-11-27T03:28:26.506495+00:00"
+    },
+    {
+      "blob": "archive/aaef44772183/sample_003_R1.fastq",
+      "requested_at": "2026-11-27T03:28:26.516439+00:00",
+      "status": "request_succeeded",
+      "response_received_at": "2026-11-27T03:28:30.096093+00:00"
+    },
+    {
+      "blob": "archive/aaef44772183/sample_003_R2.fastq",
+      "requested_at": "2026-11-27T03:28:30.106886+00:00",
+      "status": "request_succeeded",
+      "response_received_at": "2026-11-27T03:28:33.549134+00:00"
+    }
+  ],
+  "upload_completed_at": "2026-11-27T03:28:11.979040+00:00",
+  "finished_at": "2026-11-27T03:28:33.564583+00:00"
+}

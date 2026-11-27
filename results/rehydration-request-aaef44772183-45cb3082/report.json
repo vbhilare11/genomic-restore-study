@@ -1,0 +1,53 @@
+{
+  "prefix": "archive/aaef44772183",
+  "started_at": "2026-11-27T03:30:00.349501+00:00",
+  "git_commit": "a6f725ad30f06c107d80e336bed149bcc717740a",
+  "priority": "Standard",
+  "target_tier": "Hot",
+  "status": "requests_processed",
+  "actions": [
+    {
+      "blob": "archive/aaef44772183/sample_001_R1.fastq",
+      "action": "request_rehydration",
+      "requested_at": "2026-11-27T03:30:00.395741+00:00",
+      "result": "request_succeeded",
+      "response_received_at": "2026-11-27T03:30:03.861305+00:00"
+    },
+    {
+      "blob": "archive/aaef44772183/sample_001_R2.fastq",
+      "action": "request_rehydration",
+      "requested_at": "2026-11-27T03:30:03.862947+00:00",
+      "result": "request_succeeded",
+      "response_received_at": "2026-11-27T03:30:07.409475+00:00"
+    },
+    {
+      "blob": "archive/aaef44772183/sample_002_R1.fastq",
+      "action": "request_rehydration",
+      "requested_at": "2026-11-27T03:30:07.411160+00:00",
+      "result": "request_succeeded",
+      "response_received_at": "2026-11-27T03:30:11.140175+00:00"
+    },
+    {
+      "blob": "archive/aaef44772183/sample_002_R2.fastq",
+      "action": "request_rehydration",
+      "requested_at": "2026-11-27T03:30:11.141543+00:00",
+      "result": "request_succeeded",
+      "response_received_at": "2026-11-27T03:30:14.697602+00:00"
+    },
+    {
+      "blob": "archive/aaef44772183/sample_003_R1.fastq",
+      "action": "request_rehydration",
+      "requested_at": "2026-11-27T03:30:14.701844+00:00",
+      "result": "request_succeeded",
+      "response_received_at": "2026-11-27T03:30:19.038362+00:00"
+    },
+    {
+      "blob": "archive/aaef44772183/sample_003_R2.fastq",
+      "action": "request_rehydration",
+      "requested_at": "2026-11-27T03:30:19.067145+00:00",
+      "result": "request_succeeded",
+      "response_received_at": "2026-11-27T03:30:23.756933+00:00"
+    }
+  ],
+  "finished_at": "2026-11-27T03:30:23.760547+00:00"
+}
