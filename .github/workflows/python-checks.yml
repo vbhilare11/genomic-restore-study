@@ -42,6 +42,11 @@ jobs:
       - name: Test durable notification inbox
         run: python tests/check_event_store.py
 
+      - name: Test inventory worker recovery and event integration
+        run: |
+          python tests/check_inventory_worker.py
+          python tests/check_event_inventory.py
+
       - name: Run correctness checks and full pilot
         run: python src/run_full_pilot.py
 
