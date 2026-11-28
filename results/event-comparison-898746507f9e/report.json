@@ -1,0 +1,2275 @@
+{
+  "scope": "Virtual availability only; no Azure calls, transfers, or checksum verification.",
+  "git_commit": "cd4331643059bf69baef5371b2f1bcbb61613bae",
+  "git_status": "?? results/archive-status-059eca412904/\n?? results/archive-status-511409004efb/\n?? results/archive-status-de54c369f49d/\n?? results/balanced-877ua2cw/\n?? results/balanced-bujte8z_/\n?? results/balanced-ce4yfekz/\n",
+  "python": "3.14.2 (main, Dec  5 2025, 16:49:16) [Clang 17.0.0 (clang-1700.6.3.2)]",
+  "manifest": {
+    "schema_version": 1,
+    "dataset_id": "synthetic-paired-fastq-v1",
+    "seed": 42,
+    "reads_per_file": 100,
+    "read_length": 100,
+    "files": [
+      {
+        "sample_id": "sample_001",
+        "mate": 1,
+        "path": "sample_001_R1.fastq",
+        "size_bytes": 22800,
+        "sha256": "6ad5acf5cfb9c73b1689b3cfb16cfb37365b3d83a6bdc035e4da5beda01dc0bc"
+      },
+      {
+        "sample_id": "sample_001",
+        "mate": 2,
+        "path": "sample_001_R2.fastq",
+        "size_bytes": 22800,
+        "sha256": "aa7d956239499e392859a7af8066ed7a03a74872e78739402f7bb07557ae2612"
+      },
+      {
+        "sample_id": "sample_002",
+        "mate": 1,
+        "path": "sample_002_R1.fastq",
+        "size_bytes": 22800,
+        "sha256": "d99735c14a19474a8a2c5969e7a24c134e503841bf27a08ebc9f281762b4f00d"
+      },
+      {
+        "sample_id": "sample_002",
+        "mate": 2,
+        "path": "sample_002_R2.fastq",
+        "size_bytes": 22800,
+        "sha256": "72dd2d55789d1cf1a95889c5361412828a2c709a7645600ecfe8f7385a023d10"
+      },
+      {
+        "sample_id": "sample_003",
+        "mate": 1,
+        "path": "sample_003_R1.fastq",
+        "size_bytes": 22800,
+        "sha256": "9abc6a778f6494b36b90ca71984a7a0f7a727fe41582025f95581ee29221c204"
+      },
+      {
+        "sample_id": "sample_003",
+        "mate": 2,
+        "path": "sample_003_R2.fastq",
+        "size_bytes": 22800,
+        "sha256": "15ce3848d34f1e100f02ceb67782b0b363b70827179ec499181b28216cac2f11"
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "name": "never_available",
+      "available_at": null,
+      "event_at": null
+    },
+    {
+      "name": "normal",
+      "available_at": 125,
+      "event_at": 125
+    },
+    {
+      "name": "duplicate",
+      "available_at": 125,
+      "event_at": 125,
+      "duplicate": true
+    },
+    {
+      "name": "delayed_notification",
+      "available_at": 125,
+      "event_at": 200
+    },
+    {
+      "name": "notification_receiver_outage",
+      "available_at": 125,
+      "event_at": 125,
+      "receiver_down": [
+        100,
+        200
+      ]
+    },
+    {
+      "name": "inventory_failure",
+      "available_at": 125,
+      "event_at": 125,
+      "inventory_down": [
+        120,
+        170
+      ]
+    }
+  ],
+  "policy": {
+    "timeout": 300,
+    "poll_interval": 60,
+    "reconcile_interval": 60,
+    "broker_retry_delays": [
+      10,
+      20
+    ],
+    "dead_letter_sweep_interval": 120,
+    "worker_retry_delay": 10,
+    "stop": "first_online_unverified"
+  },
+  "trials": [
+    {
+      "strategy": "polling",
+      "scenario": "never_available",
+      "status": "timed_out",
+      "first_online_at": null,
+      "detection_delay": null,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 60,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 120,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 180,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 240,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 300,
+          "availability": "WAITING"
+        }
+      ],
+      "inventory_attempts": 6,
+      "inventory_failures": 0,
+      "duplicate_receipts": 0,
+      "dead_letter_replays": 0,
+      "delivery_history": [],
+      "dead_letters": [],
+      "job_state": "WAITING",
+      "recorded_notifications": 0,
+      "processing_receipts": 6
+    },
+    {
+      "strategy": "events",
+      "scenario": "never_available",
+      "status": "timed_out",
+      "first_online_at": null,
+      "detection_delay": null,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "availability": "WAITING"
+        }
+      ],
+      "inventory_attempts": 1,
+      "inventory_failures": 0,
+      "duplicate_receipts": 0,
+      "dead_letter_replays": 0,
+      "delivery_history": [],
+      "dead_letters": [],
+      "job_state": "WAITING",
+      "recorded_notifications": 0,
+      "processing_receipts": 1
+    },
+    {
+      "strategy": "events_reconcile",
+      "scenario": "never_available",
+      "status": "timed_out",
+      "first_online_at": null,
+      "detection_delay": null,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 60,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 120,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 180,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 240,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 300,
+          "availability": "WAITING"
+        }
+      ],
+      "inventory_attempts": 6,
+      "inventory_failures": 0,
+      "duplicate_receipts": 0,
+      "dead_letter_replays": 0,
+      "delivery_history": [],
+      "dead_letters": [],
+      "job_state": "WAITING",
+      "recorded_notifications": 0,
+      "processing_receipts": 6
+    },
+    {
+      "strategy": "polling",
+      "scenario": "normal",
+      "status": "online_unverified",
+      "first_online_at": 180,
+      "detection_delay": 55,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 60,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 120,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 180,
+          "availability": "ONLINE_UNVERIFIED"
+        }
+      ],
+      "inventory_attempts": 4,
+      "inventory_failures": 0,
+      "duplicate_receipts": 0,
+      "dead_letter_replays": 0,
+      "delivery_history": [],
+      "dead_letters": [],
+      "job_state": "WAITING",
+      "recorded_notifications": 0,
+      "processing_receipts": 4
+    },
+    {
+      "strategy": "events",
+      "scenario": "normal",
+      "status": "online_unverified",
+      "first_online_at": 125,
+      "detection_delay": 0,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 125,
+          "availability": "ONLINE_UNVERIFIED"
+        }
+      ],
+      "inventory_attempts": 2,
+      "inventory_failures": 0,
+      "duplicate_receipts": 0,
+      "dead_letter_replays": 0,
+      "delivery_history": [
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-0",
+            "payload": {
+              "blob": "sample_001_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-1",
+            "payload": {
+              "blob": "sample_001_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-2",
+            "payload": {
+              "blob": "sample_002_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-3",
+            "payload": {
+              "blob": "sample_002_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-4",
+            "payload": {
+              "blob": "sample_003_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-5",
+            "payload": {
+              "blob": "sample_003_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        }
+      ],
+      "dead_letters": [],
+      "job_state": "WAITING",
+      "recorded_notifications": 6,
+      "processing_receipts": 2
+    },
+    {
+      "strategy": "events_reconcile",
+      "scenario": "normal",
+      "status": "online_unverified",
+      "first_online_at": 125,
+      "detection_delay": 0,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 60,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 120,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 125,
+          "availability": "ONLINE_UNVERIFIED"
+        }
+      ],
+      "inventory_attempts": 4,
+      "inventory_failures": 0,
+      "duplicate_receipts": 0,
+      "dead_letter_replays": 0,
+      "delivery_history": [
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-0",
+            "payload": {
+              "blob": "sample_001_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-1",
+            "payload": {
+              "blob": "sample_001_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-2",
+            "payload": {
+              "blob": "sample_002_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-3",
+            "payload": {
+              "blob": "sample_002_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-4",
+            "payload": {
+              "blob": "sample_003_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-5",
+            "payload": {
+              "blob": "sample_003_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        }
+      ],
+      "dead_letters": [],
+      "job_state": "WAITING",
+      "recorded_notifications": 6,
+      "processing_receipts": 4
+    },
+    {
+      "strategy": "polling",
+      "scenario": "duplicate",
+      "status": "online_unverified",
+      "first_online_at": 180,
+      "detection_delay": 55,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 60,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 120,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 180,
+          "availability": "ONLINE_UNVERIFIED"
+        }
+      ],
+      "inventory_attempts": 4,
+      "inventory_failures": 0,
+      "duplicate_receipts": 0,
+      "dead_letter_replays": 0,
+      "delivery_history": [],
+      "dead_letters": [],
+      "job_state": "WAITING",
+      "recorded_notifications": 0,
+      "processing_receipts": 4
+    },
+    {
+      "strategy": "events",
+      "scenario": "duplicate",
+      "status": "online_unverified",
+      "first_online_at": 125,
+      "detection_delay": 0,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 125,
+          "availability": "ONLINE_UNVERIFIED"
+        }
+      ],
+      "inventory_attempts": 2,
+      "inventory_failures": 0,
+      "duplicate_receipts": 6,
+      "dead_letter_replays": 0,
+      "delivery_history": [
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-0",
+            "payload": {
+              "blob": "sample_001_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-0",
+            "payload": {
+              "blob": "sample_001_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-1",
+            "payload": {
+              "blob": "sample_001_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-1",
+            "payload": {
+              "blob": "sample_001_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-2",
+            "payload": {
+              "blob": "sample_002_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-2",
+            "payload": {
+              "blob": "sample_002_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-3",
+            "payload": {
+              "blob": "sample_002_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-3",
+            "payload": {
+              "blob": "sample_002_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-4",
+            "payload": {
+              "blob": "sample_003_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-4",
+            "payload": {
+              "blob": "sample_003_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-5",
+            "payload": {
+              "blob": "sample_003_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-5",
+            "payload": {
+              "blob": "sample_003_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        }
+      ],
+      "dead_letters": [],
+      "job_state": "WAITING",
+      "recorded_notifications": 6,
+      "processing_receipts": 2
+    },
+    {
+      "strategy": "events_reconcile",
+      "scenario": "duplicate",
+      "status": "online_unverified",
+      "first_online_at": 125,
+      "detection_delay": 0,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 60,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 120,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 125,
+          "availability": "ONLINE_UNVERIFIED"
+        }
+      ],
+      "inventory_attempts": 4,
+      "inventory_failures": 0,
+      "duplicate_receipts": 6,
+      "dead_letter_replays": 0,
+      "delivery_history": [
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-0",
+            "payload": {
+              "blob": "sample_001_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-0",
+            "payload": {
+              "blob": "sample_001_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-1",
+            "payload": {
+              "blob": "sample_001_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-1",
+            "payload": {
+              "blob": "sample_001_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-2",
+            "payload": {
+              "blob": "sample_002_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-2",
+            "payload": {
+              "blob": "sample_002_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-3",
+            "payload": {
+              "blob": "sample_002_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-3",
+            "payload": {
+              "blob": "sample_002_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-4",
+            "payload": {
+              "blob": "sample_003_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-4",
+            "payload": {
+              "blob": "sample_003_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-5",
+            "payload": {
+              "blob": "sample_003_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-5",
+            "payload": {
+              "blob": "sample_003_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        }
+      ],
+      "dead_letters": [],
+      "job_state": "WAITING",
+      "recorded_notifications": 6,
+      "processing_receipts": 4
+    },
+    {
+      "strategy": "polling",
+      "scenario": "delayed_notification",
+      "status": "online_unverified",
+      "first_online_at": 180,
+      "detection_delay": 55,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 60,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 120,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 180,
+          "availability": "ONLINE_UNVERIFIED"
+        }
+      ],
+      "inventory_attempts": 4,
+      "inventory_failures": 0,
+      "duplicate_receipts": 0,
+      "dead_letter_replays": 0,
+      "delivery_history": [],
+      "dead_letters": [],
+      "job_state": "WAITING",
+      "recorded_notifications": 0,
+      "processing_receipts": 4
+    },
+    {
+      "strategy": "events",
+      "scenario": "delayed_notification",
+      "status": "online_unverified",
+      "first_online_at": 200,
+      "detection_delay": 75,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 200,
+          "availability": "ONLINE_UNVERIFIED"
+        }
+      ],
+      "inventory_attempts": 2,
+      "inventory_failures": 0,
+      "duplicate_receipts": 0,
+      "dead_letter_replays": 0,
+      "delivery_history": [
+        {
+          "scheduled_at": 200,
+          "delivered_at": 200,
+          "event": {
+            "source": "storage",
+            "id": "event-0",
+            "payload": {
+              "blob": "sample_001_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 200,
+          "delivered_at": 200,
+          "event": {
+            "source": "storage",
+            "id": "event-1",
+            "payload": {
+              "blob": "sample_001_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 200,
+          "delivered_at": 200,
+          "event": {
+            "source": "storage",
+            "id": "event-2",
+            "payload": {
+              "blob": "sample_002_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 200,
+          "delivered_at": 200,
+          "event": {
+            "source": "storage",
+            "id": "event-3",
+            "payload": {
+              "blob": "sample_002_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 200,
+          "delivered_at": 200,
+          "event": {
+            "source": "storage",
+            "id": "event-4",
+            "payload": {
+              "blob": "sample_003_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 200,
+          "delivered_at": 200,
+          "event": {
+            "source": "storage",
+            "id": "event-5",
+            "payload": {
+              "blob": "sample_003_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        }
+      ],
+      "dead_letters": [],
+      "job_state": "WAITING",
+      "recorded_notifications": 6,
+      "processing_receipts": 2
+    },
+    {
+      "strategy": "events_reconcile",
+      "scenario": "delayed_notification",
+      "status": "online_unverified",
+      "first_online_at": 180,
+      "detection_delay": 55,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 60,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 120,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 180,
+          "availability": "ONLINE_UNVERIFIED"
+        }
+      ],
+      "inventory_attempts": 4,
+      "inventory_failures": 0,
+      "duplicate_receipts": 0,
+      "dead_letter_replays": 0,
+      "delivery_history": [],
+      "dead_letters": [],
+      "job_state": "WAITING",
+      "recorded_notifications": 0,
+      "processing_receipts": 4
+    },
+    {
+      "strategy": "polling",
+      "scenario": "notification_receiver_outage",
+      "status": "online_unverified",
+      "first_online_at": 180,
+      "detection_delay": 55,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 60,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 120,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 180,
+          "availability": "ONLINE_UNVERIFIED"
+        }
+      ],
+      "inventory_attempts": 4,
+      "inventory_failures": 0,
+      "duplicate_receipts": 0,
+      "dead_letter_replays": 0,
+      "delivery_history": [],
+      "dead_letters": [],
+      "job_state": "WAITING",
+      "recorded_notifications": 0,
+      "processing_receipts": 4
+    },
+    {
+      "strategy": "events",
+      "scenario": "notification_receiver_outage",
+      "status": "online_unverified",
+      "first_online_at": 240,
+      "detection_delay": 115,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 240,
+          "availability": "ONLINE_UNVERIFIED"
+        }
+      ],
+      "inventory_attempts": 2,
+      "inventory_failures": 0,
+      "duplicate_receipts": 0,
+      "dead_letter_replays": 6,
+      "delivery_history": [
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-0",
+            "payload": {
+              "blob": "sample_001_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "error": "Injected notification receiver outage",
+          "outcome": "retry_scheduled",
+          "retry_at": 135
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-1",
+            "payload": {
+              "blob": "sample_001_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "error": "Injected notification receiver outage",
+          "outcome": "retry_scheduled",
+          "retry_at": 135
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-2",
+            "payload": {
+              "blob": "sample_002_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "error": "Injected notification receiver outage",
+          "outcome": "retry_scheduled",
+          "retry_at": 135
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-3",
+            "payload": {
+              "blob": "sample_002_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "error": "Injected notification receiver outage",
+          "outcome": "retry_scheduled",
+          "retry_at": 135
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-4",
+            "payload": {
+              "blob": "sample_003_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "error": "Injected notification receiver outage",
+          "outcome": "retry_scheduled",
+          "retry_at": 135
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-5",
+            "payload": {
+              "blob": "sample_003_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "error": "Injected notification receiver outage",
+          "outcome": "retry_scheduled",
+          "retry_at": 135
+        },
+        {
+          "scheduled_at": 135,
+          "delivered_at": 135,
+          "event": {
+            "source": "storage",
+            "id": "event-0",
+            "payload": {
+              "blob": "sample_001_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 2,
+          "error": "Injected notification receiver outage",
+          "outcome": "retry_scheduled",
+          "retry_at": 155
+        },
+        {
+          "scheduled_at": 135,
+          "delivered_at": 135,
+          "event": {
+            "source": "storage",
+            "id": "event-1",
+            "payload": {
+              "blob": "sample_001_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 2,
+          "error": "Injected notification receiver outage",
+          "outcome": "retry_scheduled",
+          "retry_at": 155
+        },
+        {
+          "scheduled_at": 135,
+          "delivered_at": 135,
+          "event": {
+            "source": "storage",
+            "id": "event-2",
+            "payload": {
+              "blob": "sample_002_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 2,
+          "error": "Injected notification receiver outage",
+          "outcome": "retry_scheduled",
+          "retry_at": 155
+        },
+        {
+          "scheduled_at": 135,
+          "delivered_at": 135,
+          "event": {
+            "source": "storage",
+            "id": "event-3",
+            "payload": {
+              "blob": "sample_002_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 2,
+          "error": "Injected notification receiver outage",
+          "outcome": "retry_scheduled",
+          "retry_at": 155
+        },
+        {
+          "scheduled_at": 135,
+          "delivered_at": 135,
+          "event": {
+            "source": "storage",
+            "id": "event-4",
+            "payload": {
+              "blob": "sample_003_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 2,
+          "error": "Injected notification receiver outage",
+          "outcome": "retry_scheduled",
+          "retry_at": 155
+        },
+        {
+          "scheduled_at": 135,
+          "delivered_at": 135,
+          "event": {
+            "source": "storage",
+            "id": "event-5",
+            "payload": {
+              "blob": "sample_003_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 2,
+          "error": "Injected notification receiver outage",
+          "outcome": "retry_scheduled",
+          "retry_at": 155
+        },
+        {
+          "scheduled_at": 155,
+          "delivered_at": 155,
+          "event": {
+            "source": "storage",
+            "id": "event-0",
+            "payload": {
+              "blob": "sample_001_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 3,
+          "error": "Injected notification receiver outage",
+          "outcome": "dead_lettered"
+        },
+        {
+          "scheduled_at": 155,
+          "delivered_at": 155,
+          "event": {
+            "source": "storage",
+            "id": "event-1",
+            "payload": {
+              "blob": "sample_001_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 3,
+          "error": "Injected notification receiver outage",
+          "outcome": "dead_lettered"
+        },
+        {
+          "scheduled_at": 155,
+          "delivered_at": 155,
+          "event": {
+            "source": "storage",
+            "id": "event-2",
+            "payload": {
+              "blob": "sample_002_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 3,
+          "error": "Injected notification receiver outage",
+          "outcome": "dead_lettered"
+        },
+        {
+          "scheduled_at": 155,
+          "delivered_at": 155,
+          "event": {
+            "source": "storage",
+            "id": "event-3",
+            "payload": {
+              "blob": "sample_002_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 3,
+          "error": "Injected notification receiver outage",
+          "outcome": "dead_lettered"
+        },
+        {
+          "scheduled_at": 155,
+          "delivered_at": 155,
+          "event": {
+            "source": "storage",
+            "id": "event-4",
+            "payload": {
+              "blob": "sample_003_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 3,
+          "error": "Injected notification receiver outage",
+          "outcome": "dead_lettered"
+        },
+        {
+          "scheduled_at": 155,
+          "delivered_at": 155,
+          "event": {
+            "source": "storage",
+            "id": "event-5",
+            "payload": {
+              "blob": "sample_003_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 3,
+          "error": "Injected notification receiver outage",
+          "outcome": "dead_lettered"
+        },
+        {
+          "scheduled_at": 240,
+          "delivered_at": 240,
+          "event": {
+            "source": "storage",
+            "id": "event-0",
+            "payload": {
+              "blob": "sample_001_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 240,
+          "delivered_at": 240,
+          "event": {
+            "source": "storage",
+            "id": "event-1",
+            "payload": {
+              "blob": "sample_001_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 240,
+          "delivered_at": 240,
+          "event": {
+            "source": "storage",
+            "id": "event-2",
+            "payload": {
+              "blob": "sample_002_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 240,
+          "delivered_at": 240,
+          "event": {
+            "source": "storage",
+            "id": "event-3",
+            "payload": {
+              "blob": "sample_002_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 240,
+          "delivered_at": 240,
+          "event": {
+            "source": "storage",
+            "id": "event-4",
+            "payload": {
+              "blob": "sample_003_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 240,
+          "delivered_at": 240,
+          "event": {
+            "source": "storage",
+            "id": "event-5",
+            "payload": {
+              "blob": "sample_003_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        }
+      ],
+      "dead_letters": [
+        {
+          "scheduled_at": 155,
+          "delivered_at": 155,
+          "event": {
+            "source": "storage",
+            "id": "event-0",
+            "payload": {
+              "blob": "sample_001_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 3,
+          "error": "Injected notification receiver outage",
+          "outcome": "dead_lettered"
+        },
+        {
+          "scheduled_at": 155,
+          "delivered_at": 155,
+          "event": {
+            "source": "storage",
+            "id": "event-1",
+            "payload": {
+              "blob": "sample_001_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 3,
+          "error": "Injected notification receiver outage",
+          "outcome": "dead_lettered"
+        },
+        {
+          "scheduled_at": 155,
+          "delivered_at": 155,
+          "event": {
+            "source": "storage",
+            "id": "event-2",
+            "payload": {
+              "blob": "sample_002_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 3,
+          "error": "Injected notification receiver outage",
+          "outcome": "dead_lettered"
+        },
+        {
+          "scheduled_at": 155,
+          "delivered_at": 155,
+          "event": {
+            "source": "storage",
+            "id": "event-3",
+            "payload": {
+              "blob": "sample_002_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 3,
+          "error": "Injected notification receiver outage",
+          "outcome": "dead_lettered"
+        },
+        {
+          "scheduled_at": 155,
+          "delivered_at": 155,
+          "event": {
+            "source": "storage",
+            "id": "event-4",
+            "payload": {
+              "blob": "sample_003_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 3,
+          "error": "Injected notification receiver outage",
+          "outcome": "dead_lettered"
+        },
+        {
+          "scheduled_at": 155,
+          "delivered_at": 155,
+          "event": {
+            "source": "storage",
+            "id": "event-5",
+            "payload": {
+              "blob": "sample_003_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 3,
+          "error": "Injected notification receiver outage",
+          "outcome": "dead_lettered"
+        }
+      ],
+      "job_state": "WAITING",
+      "recorded_notifications": 6,
+      "processing_receipts": 2
+    },
+    {
+      "strategy": "events_reconcile",
+      "scenario": "notification_receiver_outage",
+      "status": "online_unverified",
+      "first_online_at": 180,
+      "detection_delay": 55,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 60,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 120,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 180,
+          "availability": "ONLINE_UNVERIFIED"
+        }
+      ],
+      "inventory_attempts": 4,
+      "inventory_failures": 0,
+      "duplicate_receipts": 0,
+      "dead_letter_replays": 0,
+      "delivery_history": [
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-0",
+            "payload": {
+              "blob": "sample_001_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "error": "Injected notification receiver outage",
+          "outcome": "retry_scheduled",
+          "retry_at": 135
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-1",
+            "payload": {
+              "blob": "sample_001_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "error": "Injected notification receiver outage",
+          "outcome": "retry_scheduled",
+          "retry_at": 135
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-2",
+            "payload": {
+              "blob": "sample_002_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "error": "Injected notification receiver outage",
+          "outcome": "retry_scheduled",
+          "retry_at": 135
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-3",
+            "payload": {
+              "blob": "sample_002_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "error": "Injected notification receiver outage",
+          "outcome": "retry_scheduled",
+          "retry_at": 135
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-4",
+            "payload": {
+              "blob": "sample_003_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "error": "Injected notification receiver outage",
+          "outcome": "retry_scheduled",
+          "retry_at": 135
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-5",
+            "payload": {
+              "blob": "sample_003_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "error": "Injected notification receiver outage",
+          "outcome": "retry_scheduled",
+          "retry_at": 135
+        },
+        {
+          "scheduled_at": 135,
+          "delivered_at": 135,
+          "event": {
+            "source": "storage",
+            "id": "event-0",
+            "payload": {
+              "blob": "sample_001_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 2,
+          "error": "Injected notification receiver outage",
+          "outcome": "retry_scheduled",
+          "retry_at": 155
+        },
+        {
+          "scheduled_at": 135,
+          "delivered_at": 135,
+          "event": {
+            "source": "storage",
+            "id": "event-1",
+            "payload": {
+              "blob": "sample_001_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 2,
+          "error": "Injected notification receiver outage",
+          "outcome": "retry_scheduled",
+          "retry_at": 155
+        },
+        {
+          "scheduled_at": 135,
+          "delivered_at": 135,
+          "event": {
+            "source": "storage",
+            "id": "event-2",
+            "payload": {
+              "blob": "sample_002_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 2,
+          "error": "Injected notification receiver outage",
+          "outcome": "retry_scheduled",
+          "retry_at": 155
+        },
+        {
+          "scheduled_at": 135,
+          "delivered_at": 135,
+          "event": {
+            "source": "storage",
+            "id": "event-3",
+            "payload": {
+              "blob": "sample_002_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 2,
+          "error": "Injected notification receiver outage",
+          "outcome": "retry_scheduled",
+          "retry_at": 155
+        },
+        {
+          "scheduled_at": 135,
+          "delivered_at": 135,
+          "event": {
+            "source": "storage",
+            "id": "event-4",
+            "payload": {
+              "blob": "sample_003_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 2,
+          "error": "Injected notification receiver outage",
+          "outcome": "retry_scheduled",
+          "retry_at": 155
+        },
+        {
+          "scheduled_at": 135,
+          "delivered_at": 135,
+          "event": {
+            "source": "storage",
+            "id": "event-5",
+            "payload": {
+              "blob": "sample_003_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 2,
+          "error": "Injected notification receiver outage",
+          "outcome": "retry_scheduled",
+          "retry_at": 155
+        },
+        {
+          "scheduled_at": 155,
+          "delivered_at": 155,
+          "event": {
+            "source": "storage",
+            "id": "event-0",
+            "payload": {
+              "blob": "sample_001_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 3,
+          "error": "Injected notification receiver outage",
+          "outcome": "dead_lettered"
+        },
+        {
+          "scheduled_at": 155,
+          "delivered_at": 155,
+          "event": {
+            "source": "storage",
+            "id": "event-1",
+            "payload": {
+              "blob": "sample_001_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 3,
+          "error": "Injected notification receiver outage",
+          "outcome": "dead_lettered"
+        },
+        {
+          "scheduled_at": 155,
+          "delivered_at": 155,
+          "event": {
+            "source": "storage",
+            "id": "event-2",
+            "payload": {
+              "blob": "sample_002_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 3,
+          "error": "Injected notification receiver outage",
+          "outcome": "dead_lettered"
+        },
+        {
+          "scheduled_at": 155,
+          "delivered_at": 155,
+          "event": {
+            "source": "storage",
+            "id": "event-3",
+            "payload": {
+              "blob": "sample_002_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 3,
+          "error": "Injected notification receiver outage",
+          "outcome": "dead_lettered"
+        },
+        {
+          "scheduled_at": 155,
+          "delivered_at": 155,
+          "event": {
+            "source": "storage",
+            "id": "event-4",
+            "payload": {
+              "blob": "sample_003_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 3,
+          "error": "Injected notification receiver outage",
+          "outcome": "dead_lettered"
+        },
+        {
+          "scheduled_at": 155,
+          "delivered_at": 155,
+          "event": {
+            "source": "storage",
+            "id": "event-5",
+            "payload": {
+              "blob": "sample_003_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 3,
+          "error": "Injected notification receiver outage",
+          "outcome": "dead_lettered"
+        }
+      ],
+      "dead_letters": [
+        {
+          "scheduled_at": 155,
+          "delivered_at": 155,
+          "event": {
+            "source": "storage",
+            "id": "event-0",
+            "payload": {
+              "blob": "sample_001_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 3,
+          "error": "Injected notification receiver outage",
+          "outcome": "dead_lettered"
+        },
+        {
+          "scheduled_at": 155,
+          "delivered_at": 155,
+          "event": {
+            "source": "storage",
+            "id": "event-1",
+            "payload": {
+              "blob": "sample_001_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 3,
+          "error": "Injected notification receiver outage",
+          "outcome": "dead_lettered"
+        },
+        {
+          "scheduled_at": 155,
+          "delivered_at": 155,
+          "event": {
+            "source": "storage",
+            "id": "event-2",
+            "payload": {
+              "blob": "sample_002_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 3,
+          "error": "Injected notification receiver outage",
+          "outcome": "dead_lettered"
+        },
+        {
+          "scheduled_at": 155,
+          "delivered_at": 155,
+          "event": {
+            "source": "storage",
+            "id": "event-3",
+            "payload": {
+              "blob": "sample_002_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 3,
+          "error": "Injected notification receiver outage",
+          "outcome": "dead_lettered"
+        },
+        {
+          "scheduled_at": 155,
+          "delivered_at": 155,
+          "event": {
+            "source": "storage",
+            "id": "event-4",
+            "payload": {
+              "blob": "sample_003_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 3,
+          "error": "Injected notification receiver outage",
+          "outcome": "dead_lettered"
+        },
+        {
+          "scheduled_at": 155,
+          "delivered_at": 155,
+          "event": {
+            "source": "storage",
+            "id": "event-5",
+            "payload": {
+              "blob": "sample_003_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 3,
+          "error": "Injected notification receiver outage",
+          "outcome": "dead_lettered"
+        }
+      ],
+      "job_state": "WAITING",
+      "recorded_notifications": 0,
+      "processing_receipts": 4
+    },
+    {
+      "strategy": "polling",
+      "scenario": "inventory_failure",
+      "status": "online_unverified",
+      "first_online_at": 170,
+      "detection_delay": 45,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 60,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 170,
+          "availability": "ONLINE_UNVERIFIED"
+        }
+      ],
+      "inventory_attempts": 8,
+      "inventory_failures": 5,
+      "duplicate_receipts": 0,
+      "dead_letter_replays": 0,
+      "delivery_history": [],
+      "dead_letters": [],
+      "job_state": "WAITING",
+      "recorded_notifications": 0,
+      "processing_receipts": 3
+    },
+    {
+      "strategy": "events",
+      "scenario": "inventory_failure",
+      "status": "online_unverified",
+      "first_online_at": 175,
+      "detection_delay": 50,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 175,
+          "availability": "ONLINE_UNVERIFIED"
+        }
+      ],
+      "inventory_attempts": 7,
+      "inventory_failures": 5,
+      "duplicate_receipts": 0,
+      "dead_letter_replays": 0,
+      "delivery_history": [
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-0",
+            "payload": {
+              "blob": "sample_001_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-1",
+            "payload": {
+              "blob": "sample_001_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-2",
+            "payload": {
+              "blob": "sample_002_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-3",
+            "payload": {
+              "blob": "sample_002_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-4",
+            "payload": {
+              "blob": "sample_003_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-5",
+            "payload": {
+              "blob": "sample_003_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        }
+      ],
+      "dead_letters": [],
+      "job_state": "WAITING",
+      "recorded_notifications": 6,
+      "processing_receipts": 2
+    },
+    {
+      "strategy": "events_reconcile",
+      "scenario": "inventory_failure",
+      "status": "online_unverified",
+      "first_online_at": 170,
+      "detection_delay": 45,
+      "observations": [
+        {
+          "virtual_seconds": 0,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 60,
+          "availability": "WAITING"
+        },
+        {
+          "virtual_seconds": 170,
+          "availability": "ONLINE_UNVERIFIED"
+        }
+      ],
+      "inventory_attempts": 8,
+      "inventory_failures": 5,
+      "duplicate_receipts": 0,
+      "dead_letter_replays": 0,
+      "delivery_history": [
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-0",
+            "payload": {
+              "blob": "sample_001_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-1",
+            "payload": {
+              "blob": "sample_001_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-2",
+            "payload": {
+              "blob": "sample_002_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-3",
+            "payload": {
+              "blob": "sample_002_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-4",
+            "payload": {
+              "blob": "sample_003_R1.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        },
+        {
+          "scheduled_at": 125,
+          "delivered_at": 125,
+          "event": {
+            "source": "storage",
+            "id": "event-5",
+            "payload": {
+              "blob": "sample_003_R2.fastq",
+              "hint": "changed"
+            }
+          },
+          "attempt": 1,
+          "outcome": "acknowledged"
+        }
+      ],
+      "dead_letters": [],
+      "job_state": "WAITING",
+      "recorded_notifications": 6,
+      "processing_receipts": 3
+    }
+  ]
+}
