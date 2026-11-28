@@ -47,6 +47,11 @@ jobs:
           python tests/check_inventory_worker.py
           python tests/check_event_inventory.py
 
+      - name: Test event delivery and strategy comparison
+        run: |
+          python tests/check_replay_broker.py
+          python tests/check_event_comparison.py
+
       - name: Run correctness checks and full pilot
         run: python src/run_full_pilot.py
 
